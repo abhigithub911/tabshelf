@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>New Tab</title>
+  <link rel="icon" href="icons/icon32.png">
+  <link rel="stylesheet" href="newtab.css">
+</head>
+<body class="size-m">
+  <!-- Live tabs of this window. Hover to expand, pin to keep open. -->
+  <aside id="sidebar">
+    <div class="sb-panel">
+      <div class="sb-head">
+        <button id="tabMenuBtn" class="tab-count" title="Window menu: save or close all tabs">
+          <span class="tc-dots"><i></i><i></i><i></i></span>
+          <span id="tabCount">0</span>
+        </button>
+        <div class="sb-head-text">
+          <strong>Open tabs</strong>
+          <span class="muted" id="sbWindowLabel">This window</span>
+        </div>
+        <button class="icon-btn small sb-pin" id="pinBtn" title="Pin sidebar open">
+          <svg viewBox="0 0 24 24"><path d="M9 4h6l-1 6 3 3H7l3-3zM12 13v7"/></svg>
+        </button>
+      </div>
+      <div id="sbList"></div>
+      <button class="sb-search" id="sbSearch" title="Search (⌘K)">
+        <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M20 20l-4-4"/></svg>
+        <span>Search</span>
+      </button>
+    </div>
+  </aside>
+
+  <main id="main">
+    <header id="topbar">
+      <button class="ws-btn" id="wsBtn" title="Workspaces">
+        <svg viewBox="0 0 24 24" class="ws-stack"><path d="M4 10h16v8a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2z" class="fillish"/><path d="M6 7h12M8 4h8"/></svg>
+        <span class="ws-emoji" id="wsEmoji"></span>
+      </button>
+      <nav id="cats"></nav>
+      <button class="icon-btn small add-cat" id="addCat" title="New category">
+        <svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg>
+      </button>
+      <div class="spacer"></div>
+      <button class="icon-btn" id="searchBtn" title="Search everything (⌘K)">
+        <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M20 20l-4-4"/></svg>
+      </button>
+      <button class="icon-btn" id="menuBtn" title="Actions">
+        <svg viewBox="0 0 24 24" class="fill"><circle cx="12" cy="5" r="1.7"/><circle cx="12" cy="12" r="1.7"/><circle cx="12" cy="19" r="1.7"/></svg>
+      </button>
+      <button class="icon-btn raised" id="bellBtn" title="Reminders">
+        <svg viewBox="0 0 24 24" class="fill"><path d="M12 22a2.5 2.5 0 0 0 2.4-2h-4.8A2.5 2.5 0 0 0 12 22zm7-6V11a7 7 0 0 0-5.5-6.8V3.5a1.5 1.5 0 0 0-3 0v.7A7 7 0 0 0 5 11v5l-2 2v1h18v-1z"/></svg>
+        <span class="badge" id="bellBadge" hidden></span>
+      </button>
+      <button class="icon-btn raised" id="themeBtn" title="Light / dark">
+        <svg viewBox="0 0 24 24" class="fill"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>
+      </button>
+      <button class="icon-btn raised" id="settingsBtn" title="Settings">
+        <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.7 1.7 0 0 0 .3 1.8l.1.1a2 2 0 1 1-2.8 2.8l-.1-.1a1.7 1.7 0 0 0-1.8-.3 1.7 1.7 0 0 0-1 1.5V21a2 2 0 1 1-4 0v-.1a1.7 1.7 0 0 0-1.1-1.5 1.7 1.7 0 0 0-1.8.3l-.1.1a2 2 0 1 1-2.8-2.8l.1-.1a1.7 1.7 0 0 0 .3-1.8 1.7 1.7 0 0 0-1.5-1H3a2 2 0 1 1 0-4h.1a1.7 1.7 0 0 0 1.5-1.1 1.7 1.7 0 0 0-.3-1.8l-.1-.1a2 2 0 1 1 2.8-2.8l.1.1a1.7 1.7 0 0 0 1.8.3H9a1.7 1.7 0 0 0 1-1.5V3a2 2 0 1 1 4 0v.1a1.7 1.7 0 0 0 1 1.5 1.7 1.7 0 0 0 1.8-.3l.1-.1a2 2 0 1 1 2.8 2.8l-.1.1a1.7 1.7 0 0 0-.3 1.8V9a1.7 1.7 0 0 0 1.5 1H21a2 2 0 1 1 0 4h-.1a1.7 1.7 0 0 0-1.5 1z"/></svg>
+      </button>
+    </header>
+
+    <section id="board"></section>
+  </main>
+
+  <div id="trash" hidden>
+    <svg viewBox="0 0 24 24"><path d="M4 7h16M9 7V4h6v3M6 7l1 13h10l1-13"/></svg>
+    <span>Drop here to delete</span>
+  </div>
+  <div id="selbar" hidden></div>
+  <div id="noteBar" hidden></div>
+
+  <div id="searchBack" hidden>
+    <div id="searchBox">
+      <div class="search-input">
+        <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M20 20l-4-4"/></svg>
+        <input id="search" type="text" placeholder="Search sites, notes, groups, workspaces and open tabs" autocomplete="off" spellcheck="false">
+        <kbd>esc</kbd>
+      </div>
+      <div id="searchResults"></div>
+    </div>
+  </div>
+
+  <div id="popover" hidden></div>
+  <div id="modalBack" hidden><div id="modal"></div></div>
+  <div id="toast" hidden></div>
+  <input type="file" id="fileInput" hidden>
+
+  <script src="store.js"></script>
+  <script src="ui.js"></script>
+  <script src="app.js"></script>
+  <script src="sidebar.js"></script>
+  <script src="features.js"></script>
+</body>
+</html>

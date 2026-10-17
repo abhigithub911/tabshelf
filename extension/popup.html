@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Tabshelf</title>
+  <style>
+    :root {
+      --bg: #ffffff; --soft: #f4f5f7; --text: #1b202b; --text-2: #494d59; --muted: #9aa0ab; --line: #e6e8ed;
+      --chip: #eef0f4; --accent: #6ba6f8; --accent-strong: #4b8ef0; --ok: #1f9d55;
+      --shadow-tile: 0 0 0 1px rgba(27, 32, 43, .04), 0 1px 3px rgba(27, 32, 43, .12);
+      color-scheme: light;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root { --bg: #1f2228; --soft: #17191e; --text: #eceef2; --text-2: #b9bec8; --muted: #7d8491; --line: #2e323a; --chip: #2a2e36; --accent: #5b98f2; --accent-strong: #6ba6f8; --ok: #4ade80; color-scheme: dark; }
+    }
+    * { box-sizing: border-box; }
+    body { margin: 0; width: 340px; background: var(--bg); color: var(--text); font: 13.5px/1.4 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; -webkit-font-smoothing: antialiased; }
+    .head { display: flex; align-items: center; gap: 10px; padding: 14px 16px 10px; }
+    .head img.logo { width: 22px; height: 22px; }
+    .head strong { font-size: 15px; flex: 1; }
+    .head button { border: 0; background: transparent; color: var(--text-2); border-radius: 8px; height: 28px; padding: 0 8px; cursor: pointer; font: inherit; font-size: 12.5px; }
+    .head button:hover { background: var(--chip); color: var(--text); }
+    .wrap { padding: 0 16px 16px; display: flex; flex-direction: column; gap: 10px; }
+    .cur { display: flex; gap: 12px; align-items: center; background: var(--soft); border-radius: 12px; padding: 10px 12px; }
+    .tile { width: 34px; height: 34px; border-radius: 9px; background: var(--bg); box-shadow: var(--shadow-tile); display: flex; align-items: center; justify-content: center; flex: none; }
+    .tile img { width: 18px; height: 18px; }
+    .cur > div:last-child { min-width: 0; flex: 1; }
+    .t { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; font-weight: 500; }
+    .u { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; color: var(--muted); font-size: 12px; }
+    .saved { font-size: 12px; color: var(--ok); display: flex; flex-direction: column; gap: 2px; }
+    label.f { font-size: 11.5px; font-weight: 600; color: var(--muted); text-transform: uppercase; letter-spacing: .05em; margin-bottom: -4px; }
+    select, textarea, input[type=text] { width: 100%; padding: 0 10px; height: 36px; border-radius: 9px; border: 1px solid var(--line); background: var(--soft); color: var(--text); font: inherit; outline: none; }
+    textarea { height: 64px; padding: 8px 10px; resize: none; }
+    select:focus, textarea:focus, input:focus { border-color: var(--accent); }
+    .row { display: flex; gap: 8px; }
+    .row > * { flex: 1; }
+    button.btn { font: inherit; font-weight: 500; border-radius: 10px; height: 38px; padding: 0 12px; border: 1px solid var(--line); background: var(--bg); color: var(--text); cursor: pointer; }
+    button.btn:hover { background: var(--soft); }
+    button.primary { background: var(--accent); color: #fff; border-color: transparent; }
+    button.primary:hover { background: var(--accent-strong); }
+    button:disabled { opacity: .5; cursor: default; }
+    .check { display: flex; gap: 8px; align-items: center; color: var(--text-2); font-size: 12.5px; cursor: pointer; }
+    .msg { color: var(--ok); font-size: 12.5px; min-height: 17px; text-align: center; }
+    .new-group { display: none; }
+  </style>
+</head>
+<body>
+  <div class="head">
+    <img class="logo" src="icons/icon32.png" alt="">
+    <strong>Save to Tabshelf</strong>
+    <button id="openBoard" title="Open your board">Open board ↗</button>
+  </div>
+  <div class="wrap">
+    <div class="cur"><span class="tile"><img id="fav" alt=""></span><div><div class="t" id="title"></div><div class="u" id="url"></div></div></div>
+    <div class="saved" id="saved" hidden></div>
+    <label class="f" for="where">Group</label>
+    <select id="where"></select>
+    <input type="text" id="newName" class="new-group" placeholder="New group name">
+    <label class="f" for="note">Note (optional)</label>
+    <textarea id="note" placeholder="Add a note that's saved with this site…"></textarea>
+    <button class="btn primary" id="saveTab">Save this tab</button>
+    <div class="row">
+      <button class="btn" id="saveAll">Save all tabs</button>
+      <button class="btn" id="readLater">Read later</button>
+    </div>
+    <label class="check"><input type="checkbox" id="close"> Close tabs after saving</label>
+    <div class="msg" id="msg"></div>
+  </div>
+  <script src="store.js"></script>
+  <script src="popup.js"></script>
+</body>
+</html>
