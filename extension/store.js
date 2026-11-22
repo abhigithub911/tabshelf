@@ -229,7 +229,7 @@ function findOrCreateInbox(s) {
 function newGroupInCategory(s, cat, title, icon, items) {
   const g = makeGroup(title, icon, items);
   s.groups[g.id] = g;
-  cat.groups.unshift(g.id); // new groups go in the first slot
+  cat.groups.push(g.id); // new groups go on the right, next to the add-group card
   return g;
 }
 

@@ -5,7 +5,7 @@
 A free, private new tab board for Chrome. Save tabs, quick links, notes and to-dos into colorful groups.
 Everything stays in your browser: there are no accounts, servers or tracking.
 
-**[Download Tabshelf 2.2.0](releases/tabshelf-v2.2.0.zip)**
+**[Download Tabshelf 2.3.0](releases/tabshelf-v2.3.0.zip)**
 
 <p align="center">
   <img src="store-listing/screenshot-1-board.png" alt="The board" width="49%">
@@ -14,7 +14,7 @@ Everything stays in your browser: there are no accounts, servers or tracking.
 
 ## Install it (2 minutes)
 
-1. Download [`releases/tabshelf-v2.2.0.zip`](releases/tabshelf-v2.2.0.zip) and unzip it into a folder you'll keep,
+1. Download [`releases/tabshelf-v2.3.0.zip`](releases/tabshelf-v2.3.0.zip) and unzip it into a folder you'll keep,
    for example `~/Extensions/tabshelf`. Chrome loads the extension from that folder every time, so don't delete or move it.
    (If you cloned this repository, you can use its `extension` folder instead.)
 2. Open `chrome://extensions` and switch on **Developer mode** (top right).
@@ -50,8 +50,9 @@ which hold **groups** (the cards), which hold **items**: sites, notes, to-dos, s
 **Groups**
 - An emoji or uploaded image symbol, a name (click to rename), and an **"N sites ›"** button that opens every site
   in a Chrome tab group. Shift-click opens them in a new window.
-- Hover a group to type a note, paste a link or write `/todo …` in the box at the top.
-- Group menu (⋯): add note, to-do or custom URL, save this window's tabs here, open all, open in new window,
+- New groups appear on the right, next to the *Untitled* card you click to add one (or press Ctrl+G).
+- To write a note, paste a link or type `/todo …`, choose *Write a note or paste a link* in the group menu (⋯). Empty groups show the box straight away.
+- Group menu (⋯): write a note or paste a link, add a to-do or custom URL, save this window's tabs here, open all, open in new window,
   copy content, sort (A–Z, newest, oldest), move to another category or workspace, compact view, collapse, lock,
   duplicate, change symbol and delete.
 - Drag the header to reorder groups or drop it on a category. Drag the right edge to resize; double-click the edge to reset widths.

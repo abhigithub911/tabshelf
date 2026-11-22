@@ -285,7 +285,7 @@ function renderCard(g) {
   const body = el('div', { class: 'card-body' });
   if (!g.locked) {
     body.append(el('input', {
-      class: 'add-note', placeholder: 'Write a note, paste a link, or /todo …',
+      class: 'add-note', placeholder: 'Write a note, paste a link, or /todo …', tabindex: g.items.length ? '-1' : '0',
       onkeydown: e => {
         e.stopPropagation();
         if (e.key === 'Enter' && e.target.value.trim()) { quickAdd(g, e.target.value); e.target.value = ''; }
@@ -962,10 +962,10 @@ function addGroup(cat) {
   cat = cat || curCat();
   const g = makeGroup('Untitled', '📦');
   state.groups[g.id] = g;
-  cat.groups.unshift(g.id);
+  cat.groups.push(g.id);
   commit().then(() => {
-    const t = $(`.card[data-id="${g.id}"] .card-title`);
-    if (t) { $('#board').scrollLeft = 0; startTitleEdit(t); }
+    const card = $(`.card[data-id="${g.id}"]`);
+    if (card) { card.scrollIntoView({ inline: 'nearest', block: 'nearest' }); startTitleEdit($('.card-title', card)); }
   });
   return g;
 }
@@ -993,7 +993,7 @@ function duplicateGroup(g) {
 function groupMenu(anchor, g) {
   const links = allLinks(g);
   menu(anchor, [
-    !g.locked && { text: 'Add note', icon: 'note', run: () => focusAddNote(g) },
+    !g.locked && { text: 'Write a note or paste a link', icon: 'note', run: () => focusAddNote(g) },
     !g.locked && { text: 'Add to-do', icon: 'todo', run: () => { const n = makeNote('', 'none', true); g.items.unshift(n); editingNote = n.id; commit(); } },
     !g.locked && { text: 'Add custom URL', icon: 'link', run: () => editItem(g, null, 'link') },
     !g.locked && IN_EXT && { text: 'Save all tabs in this window here', icon: 'save', run: () => saveWindowTabs(g) },

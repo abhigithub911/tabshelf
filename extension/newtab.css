@@ -239,7 +239,7 @@ body.sb-pinned .sb-pin { color: var(--accent); }
   padding: 0 12px; outline: none; color: var(--text); font-size: 14px; opacity: 0;
   transition: height .18s var(--ease), margin .18s var(--ease), opacity .15s, border-color .15s;
 }
-.card:hover .add-note, .add-note:focus, .add-note:not(:placeholder-shown), .card.empty .add-note {
+.add-note:focus, .add-note:not(:placeholder-shown), .card.empty .add-note {
   height: 38px; margin: 2px 0 6px; opacity: 1; border-color: var(--line);
 }
 .add-note:focus { border-style: solid; border-color: var(--accent); background: var(--card); }

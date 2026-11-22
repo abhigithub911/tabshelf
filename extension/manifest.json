@@ -2,7 +2,7 @@
   "manifest_version": 3,
   "name": "Tabshelf - Tab Manager & New Tab Board",
   "short_name": "Tabshelf",
-  "version": "2.2.0",
+  "version": "2.3.0",
   "description": "Save tabs, quick links, notes and to-dos into colorful groups on your new tab page. Free, private, no account.",
   "chrome_url_overrides": { "newtab": "newtab.html" },
   "permissions": ["storage", "unlimitedStorage", "tabs", "tabGroups", "favicon", "contextMenus", "topSites", "search", "alarms", "notifications"],

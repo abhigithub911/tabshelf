@@ -4,7 +4,7 @@ Everything you need to upload is in this folder:
 
 | What | File |
 |---|---|
-| Extension package to upload | `releases/tabshelf-v2.2.0.zip` |
+| Extension package to upload | `releases/tabshelf-v2.3.0.zip` |
 | Store icon (128×128) | `store-listing/icon-128.png` |
 | Screenshots (1280×800) | `store-listing/screenshot-1-board.png` … `screenshot-5-dark-menu.png` |
 | Small promo tile (440×280) | `store-listing/promo-small-440x280.png` |
@@ -34,7 +34,7 @@ The store needs a public URL for a privacy policy, because Tabshelf uses the `ta
 
 ## 3. Upload the package
 1. In the dashboard, click **New item** (or **Add new item**).
-2. Upload `releases/tabshelf-v2.2.0.zip`. (`manifest.json` must be at the root of the zip, which it is.)
+2. Upload `releases/tabshelf-v2.3.0.zip`. (`manifest.json` must be at the root of the zip, which it is.)
 
 ## 4. Store listing tab
 1. **Description:** paste the detailed description from `STORE_LISTING.md`. The short summary comes from the manifest.
