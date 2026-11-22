@@ -5,7 +5,7 @@
 A free, private new tab board for Chrome. Save tabs, quick links, notes and to-dos into colorful groups.
 Everything stays in your browser: there are no accounts, servers or tracking.
 
-**[Download Tabshelf 2.3.0](releases/tabshelf-v2.3.0.zip)**
+**[Download Tabshelf 2.3.1](releases/tabshelf-v2.3.1.zip)**
 
 <p align="center">
   <img src="store-listing/screenshot-1-board.png" alt="The board" width="49%">
@@ -14,7 +14,7 @@ Everything stays in your browser: there are no accounts, servers or tracking.
 
 ## Install it (2 minutes)
 
-1. Download [`releases/tabshelf-v2.3.0.zip`](releases/tabshelf-v2.3.0.zip) and unzip it into a folder you'll keep,
+1. Download [`releases/tabshelf-v2.3.1.zip`](releases/tabshelf-v2.3.1.zip) and unzip it into a folder you'll keep,
    for example `~/Extensions/tabshelf`. Chrome loads the extension from that folder every time, so don't delete or move it.
    (If you cloned this repository, you can use its `extension` folder instead.)
 2. Open `chrome://extensions` and switch on **Developer mode** (top right).
